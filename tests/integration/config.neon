@@ -1,0 +1,9 @@
+nette:
+	application:
+		mapping:
+			*: Tests\Integration\*Presenter
+
+extensions:
+	kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	arachne.verifier: Arachne\Verifier\DI\VerifierExtension
+	arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
