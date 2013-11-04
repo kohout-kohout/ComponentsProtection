@@ -8,21 +8,13 @@
  * For the full copyright and license information, please view the file license.md that was distributed with this source code.
  */
 
-namespace Arachne\ComponentsProtection;
-
-use Arachne\Verifier\IAnnotation;
-use Nette\Object;
+namespace Arachne\ComponentsProtection\Exception;
 
 /**
- * @author Jáchym Toušek
+ * The exception that is thrown when an argument does not match with the expected value.
  *
- * @Annotation
- * @Target({"METHOD"})
+ * @author Jáchym Toušek
  */
-class Actions extends Object implements IAnnotation
+class MissingAnnotationException extends LogicException
 {
-
-	/** @var array */
-	public $actions;
-
 }
