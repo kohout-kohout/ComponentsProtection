@@ -1,7 +1,12 @@
 nette:
 	application:
+		catchExceptions: false
 		mapping:
 			*: Tests\Integration\*Presenter
+
+services:
+	routerFactory: Tests\Integration\RouterFactory
+	router: @routerFactory::create()
 
 extensions:
 	kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
