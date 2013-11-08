@@ -1,11 +1,9 @@
-Documentation
-=============
+# Documentation
 
 This extension is here to provide easy annotation-based protection of presenter components.
 
 
-Instalation
------------
+## Installation
 
 The best way to install Arachne/ComponentsProtection is using [Composer](http://getcomposer.org/):
 
@@ -42,8 +40,7 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
 If you don't use PHP 5.4, just replace the `BasePresenter::createComponent()` method from Arachne\Verifier\Application\TVerifierPresenter with the one from Arachne\ComponentsProtection\Application\TComponentsProtection.
 
 
-Usage
------
+## Usage
 
 ### Presenter
 
@@ -89,7 +86,6 @@ You can make a component accessible from multiple actions like this:
 ```
 
 
-Notes
------
+## Notes
 
 If you are restricting a component to an action and are relying on some other annotations specified for that action, make sure the annotations are used for the action method and not the render method. Otherwise your component won't be protected because signal is called after action method but before render method.
