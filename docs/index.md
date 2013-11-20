@@ -8,7 +8,7 @@ This extension is here to provide easy annotation-based protection of presenter 
 The best way to install Arachne/ComponentsProtection is using [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require arachne/components-protection:@dev
+$ composer require arachne/components-protection
 ```
 
 Now you need to register Arachne/ComponentsProtection, Arachne/Verifier and Kdyby/Annotations extensions using your [neon](http://ne-on.org/) config file.
