@@ -33,7 +33,7 @@ class ArticlePresenter extends Presenter
 	}
 
 	/**
-	 * @Actions({"default", "detail", "edit"})
+	 * @Actions({"*"})
 	 * @return BlockControl
 	 */
 	protected function createComponentHeader()

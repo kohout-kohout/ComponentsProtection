@@ -46,6 +46,9 @@ class ComponentsProtectionHandler extends Object implements IAnnotationHandler
 	protected function checkAnnotationActions(Actions $annotation, Request $request)
 	{
 		$parameters = $request->getParameters();
+		if ($annotation->actions === array('*')) {
+			return;
+		}
 		if (!in_array($parameters[Presenter::ACTION_KEY], $annotation->actions)) {
 			throw new ComponentInaccessibleException("Component is inaccessible for the given action.");
 		}
