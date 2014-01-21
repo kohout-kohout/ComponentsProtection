@@ -23,6 +23,6 @@ class Actions extends Object implements IAnnotation
 {
 
 	/** @var array */
-	public $actions;
+	public $actions = array();
 
 }
