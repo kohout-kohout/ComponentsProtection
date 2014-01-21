@@ -34,7 +34,7 @@ class ComponentsProtectionTest extends Test
 
 	/**
 	 * @expectedException Arachne\ComponentsProtection\Exception\MissingAnnotationException
-	 * @expectedExceptionMessage Missing annotation @Actions for component 'unprotected'.
+	 * @expectedExceptionMessage Missing annotation @Arachne\ComponentsProtection\Actions for component 'unprotected'.
 	 */
 	public function testComponentNotAllowed()
 	{

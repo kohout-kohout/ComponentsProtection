@@ -45,7 +45,7 @@ trait TComponentsProtection
 		if (method_exists($this, $method)) {
 			$reflection = $this->getReflection()->getMethod($method);
 			if (!$this->reader->getMethodAnnotation($reflection, 'Arachne\ComponentsProtection\Actions')) {
-				throw new MissingAnnotationException("Missing annotation @Actions for component '$name'.");
+				throw new MissingAnnotationException("Missing annotation @Arachne\ComponentsProtection\Actions for component '$name'.");
 			}
 			$this->checkRequirements($reflection);
 		}
