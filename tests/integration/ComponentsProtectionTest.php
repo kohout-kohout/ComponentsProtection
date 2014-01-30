@@ -2,17 +2,17 @@
 
 namespace Tests\Integration;
 
-use Arachne\Codeception\TestCase\Test;
+use Codeception\TestCase\Test;
 
 class ComponentsProtectionTest extends Test
 {
 
 	public function testActionDefault()
 	{
-		$this->guy->amOnPage('/article/');
-		$this->guy->seeResponseCodeIs(200);
-		$this->guy->see('header');
-		$this->guy->see('footer');
+		$this->codeGuy->amOnPage('/article/');
+		$this->codeGuy->seeResponseCodeIs(200);
+		$this->codeGuy->see('header');
+		$this->codeGuy->see('footer');
 	}
 
 	/**
@@ -21,15 +21,15 @@ class ComponentsProtectionTest extends Test
 	 */
 	public function testActionDetail()
 	{
-		$this->guy->amOnPage('/article/detail/1');
+		$this->codeGuy->amOnPage('/article/detail/1');
 	}
 
 	public function testActionEdit()
 	{
-		$this->guy->amOnPage('/article/edit/1');
-		$this->guy->seeResponseCodeIs(200);
-		$this->guy->see('header');
-		$this->guy->dontSee('footer');
+		$this->codeGuy->amOnPage('/article/edit/1');
+		$this->codeGuy->seeResponseCodeIs(200);
+		$this->codeGuy->see('header');
+		$this->codeGuy->dontSee('footer');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class ComponentsProtectionTest extends Test
 	 */
 	public function testComponentNotAllowed()
 	{
-		$this->guy->amOnPage('/article/?do=unprotected-signal');
+		$this->codeGuy->amOnPage('/article/?do=unprotected-signal');
 	}
 
 }

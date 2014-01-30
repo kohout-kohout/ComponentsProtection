@@ -12,8 +12,8 @@ namespace Arachne\ComponentsProtection;
 
 use Arachne\ComponentsProtection\Exception\InvalidArgumentException;
 use Arachne\ComponentsProtection\Exception\ComponentInaccessibleException;
-use Arachne\Verifier\IAnnotation;
-use Arachne\Verifier\IAnnotationHandler;
+use Arachne\Verifier\IRule;
+use Arachne\Verifier\IRuleHandler;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
 use Nette\Object;
@@ -21,18 +21,19 @@ use Nette\Object;
 /**
  * @author Jáchym Toušek
  */
-class ComponentsProtectionHandler extends Object implements IAnnotationHandler
+class ComponentsProtectionHandler extends Object implements IRuleHandler
 {
 
 	/**
-	 * @param Allowed $annotation
+	 * @param Actions $annotation
 	 * @param Request $request
+	 * @param string $component
 	 * @throws ComponentInaccessibleException
 	 */
-	public function checkAnnotation(IAnnotation $annotation, Request $request)
+	public function checkRule(IRule $annotation, Request $request, $component = NULL)
 	{
 		if ($annotation instanceof Actions) {
-			$this->checkAnnotationActions($annotation, $request);
+			$this->checkRuleActions($annotation, $request);
 		} else {
 			throw new InvalidArgumentException('Unknown annotation \'' . get_class($annotation) . '\' given.');
 		}
@@ -43,7 +44,7 @@ class ComponentsProtectionHandler extends Object implements IAnnotationHandler
 	 * @param Request $request
 	 * @throws ComponentInaccessibleException
 	 */
-	protected function checkAnnotationActions(Actions $annotation, Request $request)
+	protected function checkRuleActions(Actions $annotation, Request $request)
 	{
 		$parameters = $request->getParameters();
 		if ($annotation->actions === array('*')) {

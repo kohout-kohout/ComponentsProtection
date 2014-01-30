@@ -31,7 +31,7 @@ class ComponentsProtectionHandlerTest extends Test
 			Presenter::ACTION_KEY => 'default',
 		]);
 
-		$this->assertNull($this->handler->checkAnnotation($annotation, $request));
+		$this->assertNull($this->handler->checkRule($annotation, $request));
 	}
 
 	/**
@@ -46,7 +46,7 @@ class ComponentsProtectionHandlerTest extends Test
 			Presenter::ACTION_KEY => 'default',
 		]);
 
-		$this->handler->checkAnnotation($annotation, $request);
+		$this->handler->checkRule($annotation, $request);
 	}
 
 	/**
@@ -54,10 +54,10 @@ class ComponentsProtectionHandlerTest extends Test
 	 */
 	public function testUnknownAnnotation()
 	{
-		$annotation = Mockery::mock('Arachne\Verifier\IAnnotation');
+		$annotation = Mockery::mock('Arachne\Verifier\IRule');
 		$request = new Request('Test', 'GET', []);
 
-		$this->handler->checkAnnotation($annotation, $request);
+		$this->handler->checkRule($annotation, $request);
 	}
 
 }

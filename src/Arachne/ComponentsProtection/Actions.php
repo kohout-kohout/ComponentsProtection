@@ -10,7 +10,7 @@
 
 namespace Arachne\ComponentsProtection;
 
-use Arachne\Verifier\IAnnotation;
+use Arachne\Verifier\IRule;
 use Nette\Object;
 
 /**
@@ -19,7 +19,7 @@ use Nette\Object;
  * @Annotation
  * @Target({"METHOD"})
  */
-class Actions extends Object implements IAnnotation
+class Actions extends Object implements IRule
 {
 
 	/** @var array */
