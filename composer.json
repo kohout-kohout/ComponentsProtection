@@ -27,8 +27,8 @@
 		"codeception/mockery-module": "~0.1"
 	},
 	"autoload": {
-		"psr-0": {
-			"Arachne\\ComponentsProtection": "src/"
+		"psr-4": {
+			"Arachne\\ComponentsProtection\\": "src/"
 		}
 	},
 	"repositories": [
