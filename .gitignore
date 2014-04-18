@@ -1,13 +1,6 @@
-/.idea/
-/nbproject/
+/vendor
+/tests/_log
+/tests/_temp
+/composer.lock
 
-/vendor/*
-/tests/_log/*
-/tests/_temp/*
-
-.DS_Store
-!.htaccess
-!.gitignore
-!web.config
-
-composer.lock
+!.gitkeep
