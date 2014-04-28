@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Integration;
+namespace Tests\Integration\Classes;
 
 use Arachne\ComponentsProtection\Actions;
 use Arachne\ComponentsProtection\Application\TComponentsProtection;
@@ -52,6 +52,13 @@ class ArticlePresenter extends Presenter
 
 	protected function createComponentUnprotected()
 	{
+	}
+
+	public function formatTemplateFiles()
+	{
+		$name = $this->getName();
+		$presenter = substr($name, strrpos(':' . $name, ':'));
+		return [ __DIR__ . "/../../templates/$presenter.$this->view.latte" ];
 	}
 
 }

@@ -2,10 +2,10 @@ nette:
 	application:
 		catchExceptions: false
 		mapping:
-			*: Tests\Integration\*Presenter
+			*: Tests\Integration\Classes\*Presenter
 
 services:
-	routerFactory: Tests\Integration\RouterFactory
+	routerFactory: Tests\Integration\Classes\RouterFactory
 	router: @routerFactory::create()
 
 extensions:
