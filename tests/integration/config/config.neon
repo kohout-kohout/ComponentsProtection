@@ -1,3 +1,8 @@
+extensions:
+	kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	arachne.verifier: Arachne\Verifier\DI\VerifierExtension
+	arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
+
 nette:
 	application:
 		catchExceptions: false
@@ -7,8 +12,3 @@ nette:
 services:
 	routerFactory: Tests\Integration\Classes\RouterFactory
 	router: @routerFactory::create()
-
-extensions:
-	kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
-	arachne.verifier: Arachne\Verifier\DI\VerifierExtension
-	arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
