@@ -9,10 +9,10 @@ class ComponentsProtectionTest extends Test
 
 	public function testActionDefault()
 	{
-		$this->codeGuy->amOnPage('/article/');
-		$this->codeGuy->seeResponseCodeIs(200);
-		$this->codeGuy->see('header');
-		$this->codeGuy->see('footer');
+		$this->guy->amOnPage('/article/');
+		$this->guy->seeResponseCodeIs(200);
+		$this->guy->see('header');
+		$this->guy->see('footer');
 	}
 
 	/**
@@ -21,15 +21,15 @@ class ComponentsProtectionTest extends Test
 	 */
 	public function testActionDetail()
 	{
-		$this->codeGuy->amOnPage('/article/detail/1');
+		$this->guy->amOnPage('/article/detail/1');
 	}
 
 	public function testActionEdit()
 	{
-		$this->codeGuy->amOnPage('/article/edit/1');
-		$this->codeGuy->seeResponseCodeIs(200);
-		$this->codeGuy->see('header');
-		$this->codeGuy->dontSee('footer');
+		$this->guy->amOnPage('/article/edit/1');
+		$this->guy->seeResponseCodeIs(200);
+		$this->guy->see('header');
+		$this->guy->dontSee('footer');
 	}
 
 	/**
@@ -38,7 +38,7 @@ class ComponentsProtectionTest extends Test
 	 */
 	public function testComponentNotAllowed()
 	{
-		$this->codeGuy->amOnPage('/article/?do=unprotected-signal');
+		$this->guy->amOnPage('/article/?do=unprotected-signal');
 	}
 
 }
