@@ -20,7 +20,7 @@
 		"arachne/verifier": "dev-master"
 	},
 	"require-dev": {
-		"php": ">=5.4.0",
+		"php": ">=5.5.0",
 		"nette/nette": "~2.2.0",
 		"squizlabs/php_codesniffer": "~1.4",
 		"mockery/mockery": "~0.9",
