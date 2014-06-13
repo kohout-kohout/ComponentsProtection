@@ -28,7 +28,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Arachne\\ComponentsProtection\\": "src/"
+			"Arachne\\ComponentsProtection\\": "src"
 		}
 	},
 	"autoload-dev": {
