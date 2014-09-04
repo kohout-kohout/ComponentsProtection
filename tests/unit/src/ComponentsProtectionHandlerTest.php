@@ -26,13 +26,13 @@ class ComponentsProtectionHandlerTest extends Test
 
 	public function testAllowedTrue()
 	{
-		$annotation = new Actions();
-		$annotation->actions = [ 'default' ];
+		$rule = new Actions();
+		$rule->actions = [ 'default' ];
 		$request = new Request('Test', 'GET', [
 			Presenter::ACTION_KEY => 'default',
 		]);
 
-		$this->assertNull($this->handler->checkRule($annotation, $request));
+		$this->assertNull($this->handler->checkRule($rule, $request));
 	}
 
 	/**
@@ -41,13 +41,13 @@ class ComponentsProtectionHandlerTest extends Test
 	 */
 	public function testAllowedFalse()
 	{
-		$annotation = new Actions();
-		$annotation->actions = [];
+		$rule = new Actions();
+		$rule->actions = [];
 		$request = new Request('Test', 'GET', [
 			Presenter::ACTION_KEY => 'default',
 		]);
 
-		$this->handler->checkRule($annotation, $request);
+		$this->handler->checkRule($rule, $request);
 	}
 
 	/**
@@ -55,10 +55,10 @@ class ComponentsProtectionHandlerTest extends Test
 	 */
 	public function testUnknownAnnotation()
 	{
-		$annotation = Mockery::mock(IRule::class);
+		$rule = Mockery::mock(IRule::class);
 		$request = new Request('Test', 'GET', []);
 
-		$this->handler->checkRule($annotation, $request);
+		$this->handler->checkRule($rule, $request);
 	}
 
 }
