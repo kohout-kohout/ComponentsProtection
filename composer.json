@@ -15,7 +15,6 @@
 		"nette/di": "~2.2",
 		"doctrine/annotations": "~1.1",
 		"kdyby/annotations": "~2.1",
-		"kdyby/doctrine-cache": "~2.3",
 		"arachne/verifier": "~0.2"
 	},
 	"require-dev": {
