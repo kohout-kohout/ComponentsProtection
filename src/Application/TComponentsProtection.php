@@ -24,7 +24,7 @@ trait TComponentsProtection
 	use TVerifierPresenter;
 
 	/** @var Reader */
-	protected $reader;
+	private $reader;
 
 	/**
 	 * @param Reader $reader

@@ -44,7 +44,7 @@ class ComponentsProtectionHandler extends Object implements IRuleHandler
 	 * @param Request $request
 	 * @throws ComponentInaccessibleException
 	 */
-	protected function checkRuleActions(Actions $rule, Request $request)
+	private function checkRuleActions(Actions $rule, Request $request)
 	{
 		$parameters = $request->getParameters();
 		if ($rule->actions === array('*')) {
