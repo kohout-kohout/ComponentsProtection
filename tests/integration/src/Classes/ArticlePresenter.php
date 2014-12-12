@@ -2,8 +2,9 @@
 
 namespace Tests\Integration\Classes;
 
-use Arachne\ComponentsProtection\Actions;
-use Arachne\ComponentsProtection\Application\TComponentsProtection;
+use Arachne\ComponentsProtection\Rules\Actions;
+use Arachne\ComponentsProtection\Application\ComponentsProtectionTrait;
+use Arachne\Verifier\Rules\All;
 use Nette\Application\UI\Presenter;
 
 /**
@@ -12,7 +13,7 @@ use Nette\Application\UI\Presenter;
 class ArticlePresenter extends Presenter
 {
 
-	use TComponentsProtection;
+	use ComponentsProtectionTrait;
 
 	public function actionDefault()
 	{
@@ -43,6 +44,9 @@ class ArticlePresenter extends Presenter
 
 	/**
 	 * @Actions("default")
+	 * @All({
+	 * 	 @Actions("default"),
+	 * })	 
 	 * @return BlockControl
 	 */
 	protected function createComponentFooter()

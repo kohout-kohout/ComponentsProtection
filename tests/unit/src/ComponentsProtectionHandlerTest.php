@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use Arachne\ComponentsProtection\Actions;
-use Arachne\ComponentsProtection\ComponentsProtectionHandler;
-use Arachne\Verifier\IRule;
+use Arachne\ComponentsProtection\Rules\Actions;
+use Arachne\ComponentsProtection\Rules\ComponentsProtectionHandler;
+use Arachne\Verifier\RuleInterface;
 use Codeception\TestCase\Test;
 use Mockery;
 use Nette\Application\Request;
@@ -55,7 +55,7 @@ class ComponentsProtectionHandlerTest extends Test
 	 */
 	public function testUnknownAnnotation()
 	{
-		$rule = Mockery::mock(IRule::class);
+		$rule = Mockery::mock(RuleInterface::class);
 		$request = new Request('Test', 'GET', []);
 
 		$this->handler->checkRule($rule, $request);

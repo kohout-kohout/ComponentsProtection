@@ -15,7 +15,7 @@
 		"nette/di": "~2.2",
 		"doctrine/annotations": "~1.1",
 		"kdyby/annotations": "~2.1",
-		"arachne/verifier": "~0.2"
+		"arachne/verifier": "~0.4"
 	},
 	"require-dev": {
 		"php": ">=5.5.0",

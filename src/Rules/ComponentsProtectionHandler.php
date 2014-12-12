@@ -8,12 +8,12 @@
  * For the full copyright and license information, please view the file license.md that was distributed with this source code.
  */
 
-namespace Arachne\ComponentsProtection;
+namespace Arachne\ComponentsProtection\Rules;
 
 use Arachne\ComponentsProtection\Exception\InvalidArgumentException;
 use Arachne\ComponentsProtection\Exception\ComponentInaccessibleException;
-use Arachne\Verifier\IRule;
-use Arachne\Verifier\IRuleHandler;
+use Arachne\Verifier\RuleInterface;
+use Arachne\Verifier\RuleHandlerInterface;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
 use Nette\Object;
@@ -21,7 +21,7 @@ use Nette\Object;
 /**
  * @author Jáchym Toušek
  */
-class ComponentsProtectionHandler extends Object implements IRuleHandler
+class ComponentsProtectionHandler extends Object implements RuleHandlerInterface
 {
 
 	/**
@@ -30,7 +30,7 @@ class ComponentsProtectionHandler extends Object implements IRuleHandler
 	 * @param string $component
 	 * @throws ComponentInaccessibleException
 	 */
-	public function checkRule(IRule $rule, Request $request, $component = NULL)
+	public function checkRule(RuleInterface $rule, Request $request, $component = NULL)
 	{
 		if ($rule instanceof Actions) {
 			$this->checkRuleActions($rule, $request);

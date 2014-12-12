@@ -11,17 +11,17 @@
 namespace Arachne\ComponentsProtection\Application;
 
 use Arachne\ComponentsProtection\Exception\MissingAnnotationException;
-use Arachne\Verifier\Application\TVerifierPresenter;
+use Arachne\Verifier\Application\VerifierPresenterTrait;
 use Doctrine\Common\Annotations\Reader;
 use Nette\ComponentModel\IComponent;
 
 /**
  * @author Jáchym Toušek
  */
-trait TComponentsProtection
+trait ComponentsProtectionTrait
 {
 
-	use TVerifierPresenter;
+	use VerifierPresenterTrait;
 
 	/** @var Reader */
 	private $reader;
@@ -44,8 +44,8 @@ trait TComponentsProtection
 		$method = 'createComponent' . ucfirst($name);
 		if (method_exists($this, $method)) {
 			$reflection = $this->getReflection()->getMethod($method);
-			if (!$this->reader->getMethodAnnotation($reflection, 'Arachne\ComponentsProtection\Actions')) {
-				throw new MissingAnnotationException("Missing annotation @Arachne\ComponentsProtection\Actions for component '$name'.");
+			if (!$this->reader->getMethodAnnotation($reflection, 'Arachne\ComponentsProtection\Rules\Actions')) {
+				throw new MissingAnnotationException("Missing annotation @Arachne\ComponentsProtection\Rules\Actions for component '$name'.");
 			}
 			$this->checkRequirements($reflection);
 		}
