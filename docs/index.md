@@ -24,20 +24,20 @@ See also the documentation of [Kdyby/Annotations](https://github.com/Kdyby/Annot
 
 ### PHP 5.4
 
-Finally **replace** the Arachne\Verifier\Application\TVerifierPresenter trait in your BasePresenter with Arachne\ComponentsProtection\Application\TComponentsProtection.
+Finally **replace** the Arachne\Verifier\Application\VerifierPresenterTrait trait in your BasePresenter with Arachne\ComponentsProtection\Application\ComponentsProtectionTrait.
 
 ```php
 abstract class BasePresenter extends \Nette\Application\UI\Presenter
 {
 
-	use \Arachne\ComponentsProtection\Application\TComponentsProtection;
+	use \Arachne\ComponentsProtection\Application\ComponentsProtectionTrait;
 
 }
 ```
 
 ### PHP 5.3
 
-If you don't use PHP 5.4, just replace the `BasePresenter::createComponent()` method from Arachne\Verifier\Application\TVerifierPresenter with the one from Arachne\ComponentsProtection\Application\TComponentsProtection.
+If you don't use PHP 5.4, just replace the `BasePresenter::createComponent()` method from Arachne\Verifier\Application\VerifierPresenterTrait with the one from Arachne\ComponentsProtection\Application\ComponentsProtectionTrait.
 
 
 ## Usage
@@ -47,7 +47,7 @@ If you don't use PHP 5.4, just replace the `BasePresenter::createComponent()` me
 This extension adds only one new annotation `@Actions` for Verifier. It's used for restricting components to specified actions. This solves the security issue in Nette where a component can be created even when not intended by sending a signal to it. Note that this annotation is required and the components wont work at all if you miss it.
 
 ```php
-use Arachne\ComponentsProtection\Actions;
+use Arachne\ComponentsProtection\Rules\Actions;
 
 class ArticlePresenter extends BasePresenter
 {
