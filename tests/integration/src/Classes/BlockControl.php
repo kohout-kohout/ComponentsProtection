@@ -5,7 +5,7 @@ namespace Tests\Integration\Classes;
 use Nette\Application\UI\Control;
 
 /**
- * @author Jáchym Toušek
+ * @author Jáchym Toušek <enumag@gmail.com>
  */
 class BlockControl extends Control
 {

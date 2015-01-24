@@ -13,7 +13,7 @@ namespace Arachne\ComponentsProtection\Exception;
 use Nette\Application\BadRequestException;
 
 /**
- * @author Jáchym Toušek
+ * @author Jáchym Toušek <enumag@gmail.com>
  */
 class ComponentInaccessibleException extends BadRequestException
 {

@@ -7,7 +7,7 @@ use Nette\Application\Routers\Route;
 use Nette\Application\Routers\RouteList;
 
 /**
- * @author Jáchym Toušek
+ * @author Jáchym Toušek <enumag@gmail.com>
  */
 class RouterFactory extends \Nette\Object
 {

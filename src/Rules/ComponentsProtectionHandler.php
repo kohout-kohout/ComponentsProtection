@@ -19,7 +19,7 @@ use Nette\Application\UI\Presenter;
 use Nette\Object;
 
 /**
- * @author Jáchym Toušek
+ * @author Jáchym Toušek <enumag@gmail.com>
  */
 class ComponentsProtectionHandler extends Object implements RuleHandlerInterface
 {

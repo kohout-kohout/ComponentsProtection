@@ -16,7 +16,7 @@ use Doctrine\Common\Annotations\Reader;
 use Nette\ComponentModel\IComponent;
 
 /**
- * @author Jáchym Toušek
+ * @author Jáchym Toušek <enumag@gmail.com>
  */
 trait ComponentsProtectionTrait
 {

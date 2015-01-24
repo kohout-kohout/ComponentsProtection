@@ -5,7 +5,7 @@ namespace Tests\Integration;
 use Codeception\TestCase\Test;
 
 /**
- * @author Jáchym Toušek
+ * @author Jáchym Toušek <enumag@gmail.com>
  */
 class ComponentsProtectionTest extends Test
 {
