@@ -46,7 +46,7 @@ class ArticlePresenter extends Presenter
 	 * @Actions("default")
 	 * @All({
 	 * 	 @Actions("default"),
-	 * })	 
+	 * })
 	 * @return BlockControl
 	 */
 	protected function createComponentFooter()

@@ -2,13 +2,21 @@
 
 namespace Tests\Integration;
 
+use Arachne\Codeception\ConfigFilesInterface;
 use Codeception\TestCase\Test;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class ComponentsProtectionTest extends Test
+class ComponentsProtectionTest extends Test implements ConfigFilesInterface
 {
+
+	public function getConfigFiles()
+	{
+		return [
+			'config/config.neon',
+		];
+	}
 
 	public function testActionDefault()
 	{
