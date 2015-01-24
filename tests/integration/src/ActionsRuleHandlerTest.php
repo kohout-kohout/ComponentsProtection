@@ -8,7 +8,7 @@ use Codeception\TestCase\Test;
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class ComponentsProtectionTest extends Test implements ConfigFilesInterface
+class ActionsRuleHandlerTest extends Test implements ConfigFilesInterface
 {
 
 	public function getConfigFiles()

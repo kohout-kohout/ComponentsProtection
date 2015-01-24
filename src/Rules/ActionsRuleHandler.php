@@ -21,7 +21,7 @@ use Nette\Object;
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class ComponentsProtectionHandler extends Object implements RuleHandlerInterface
+class ActionsRuleHandler extends Object implements RuleHandlerInterface
 {
 
 	/**
@@ -32,24 +32,14 @@ class ComponentsProtectionHandler extends Object implements RuleHandlerInterface
 	 */
 	public function checkRule(RuleInterface $rule, Request $request, $component = NULL)
 	{
-		if ($rule instanceof Actions) {
-			$this->checkRuleActions($rule, $request);
-		} else {
+		if (!$rule instanceof Actions) {
 			throw new InvalidArgumentException('Unknown rule \'' . get_class($rule) . '\' given.');
 		}
-	}
 
-	/**
-	 * @param Actions $rule
-	 * @param Request $request
-	 * @throws ComponentInaccessibleException
-	 */
-	private function checkRuleActions(Actions $rule, Request $request)
-	{
-		$parameters = $request->getParameters();
 		if ($rule->actions === array('*')) {
 			return;
 		}
+		$parameters = $request->getParameters();
 		if (!in_array($parameters[Presenter::ACTION_KEY], $rule->actions)) {
 			throw new ComponentInaccessibleException("Component is inaccessible for the given action.");
 		}

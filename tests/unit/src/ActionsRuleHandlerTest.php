@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Arachne\ComponentsProtection\Rules\Actions;
-use Arachne\ComponentsProtection\Rules\ComponentsProtectionHandler;
+use Arachne\ComponentsProtection\Rules\ActionsRuleHandler;
 use Arachne\Verifier\RuleInterface;
 use Codeception\TestCase\Test;
 use Mockery;
@@ -13,15 +13,15 @@ use Nette\Application\UI\Presenter;
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class ComponentsProtectionHandlerTest extends Test
+class ActionsRuleHandlerTest extends Test
 {
 
-	/** @var ComponentsProtectionHandler */
+	/** @var ActionsRuleHandler */
 	private $handler;
 
 	protected function _before()
 	{
-		$this->handler = new ComponentsProtectionHandler();
+		$this->handler = new ActionsRuleHandler();
 	}
 
 	public function testAllowedTrue()

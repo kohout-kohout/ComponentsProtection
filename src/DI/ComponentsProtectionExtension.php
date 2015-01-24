@@ -24,7 +24,7 @@ class ComponentsProtectionExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('handler'))
-			->setClass('Arachne\ComponentsProtection\Rules\ComponentsProtectionHandler')
+			->setClass('Arachne\ComponentsProtection\Rules\ActionsRuleHandler')
 			->addTag(VerifierExtension::TAG_HANDLER, array(
 				'Arachne\ComponentsProtection\Rules\Actions',
 			));
