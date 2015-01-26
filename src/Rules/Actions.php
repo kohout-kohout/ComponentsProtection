@@ -23,6 +23,6 @@ class Actions extends Object implements RuleInterface
 {
 
 	/** @var array */
-	public $actions = array();
+	public $actions = [];
 
 }

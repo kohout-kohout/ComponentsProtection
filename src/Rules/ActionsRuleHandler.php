@@ -36,7 +36,7 @@ class ActionsRuleHandler extends Object implements RuleHandlerInterface
 			throw new InvalidArgumentException('Unknown rule \'' . get_class($rule) . '\' given.');
 		}
 
-		if ($rule->actions === array('*')) {
+		if ($rule->actions === [ '*' ]) {
 			return;
 		}
 		$parameters = $request->getParameters();
