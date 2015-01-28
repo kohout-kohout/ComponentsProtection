@@ -27,7 +27,7 @@ class ActionsRuleHandlerTest extends Test implements ConfigFilesInterface
 	}
 
 	/**
-	 * @expectedException Arachne\ComponentsProtection\Exception\ComponentInaccessibleException
+	 * @expectedException Arachne\Verifier\Exception\VerificationException
 	 * @expectedExceptionMessage Component is inaccessible for the given action.
 	 */
 	public function testActionDetail()

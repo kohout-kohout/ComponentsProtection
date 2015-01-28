@@ -10,8 +10,7 @@
 
 namespace Arachne\ComponentsProtection\Rules;
 
-use Arachne\Verifier\RuleInterface;
-use Nette\Object;
+use Arachne\Verifier\Rules\ValidationRule;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
@@ -19,7 +18,7 @@ use Nette\Object;
  * @Annotation
  * @Target({"METHOD", "ANNOTATION"})
  */
-class Actions extends Object implements RuleInterface
+class Actions extends ValidationRule
 {
 
 	/** @var array */

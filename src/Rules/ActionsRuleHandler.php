@@ -11,7 +11,7 @@
 namespace Arachne\ComponentsProtection\Rules;
 
 use Arachne\ComponentsProtection\Exception\InvalidArgumentException;
-use Arachne\ComponentsProtection\Exception\ComponentInaccessibleException;
+use Arachne\Verifier\Exception\VerificationException;
 use Arachne\Verifier\RuleInterface;
 use Arachne\Verifier\RuleHandlerInterface;
 use Nette\Application\Request;
@@ -28,7 +28,7 @@ class ActionsRuleHandler extends Object implements RuleHandlerInterface
 	 * @param Actions $rule
 	 * @param Request $request
 	 * @param string $component
-	 * @throws ComponentInaccessibleException
+	 * @throws VerificationException
 	 */
 	public function checkRule(RuleInterface $rule, Request $request, $component = NULL)
 	{
@@ -41,7 +41,7 @@ class ActionsRuleHandler extends Object implements RuleHandlerInterface
 		}
 		$parameters = $request->getParameters();
 		if (!in_array($parameters[Presenter::ACTION_KEY], $rule->actions)) {
-			throw new ComponentInaccessibleException("Component is inaccessible for the given action.");
+			throw new VerificationException($rule, "Component is inaccessible for the given action.");
 		}
 	}
 
