@@ -2,21 +2,13 @@
 
 namespace Tests\Integration;
 
-use Arachne\Codeception\ConfigFilesInterface;
 use Codeception\TestCase\Test;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class ActionsRuleHandlerTest extends Test implements ConfigFilesInterface
+class ActionsRuleHandlerTest extends Test
 {
-
-	public function getConfigFiles()
-	{
-		return [
-			'config/config.neon',
-		];
-	}
 
 	public function testActionDefault()
 	{
