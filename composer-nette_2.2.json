@@ -1,7 +1,7 @@
 {
 	"require": {
 		"php": ">=5.4.0",
-		"arachne/verifier": "~0.7.0",
+		"arachne/verifier": "~0.7.0|~0.8.0",
 		"doctrine/annotations": "~1.1",
 		"kdyby/annotations": "~2.1",
 		"nette/application": "~2.2.0",
