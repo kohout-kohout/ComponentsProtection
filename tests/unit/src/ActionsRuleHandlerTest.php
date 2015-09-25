@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Arachne\ComponentsProtection\Rules\Actions;
 use Arachne\ComponentsProtection\Rules\ActionsRuleHandler;
 use Arachne\Verifier\RuleInterface;
-use Codeception\TestCase\Test;
+use Codeception\MockeryModule\Test;
 use Mockery;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
