@@ -1,7 +1,8 @@
 common:
 	extensions:
+		arachne.dihelpers.iterators: Arachne\DIHelpers\DI\IteratorsExtension
+		arachne.dihelpers.resolvers: Arachne\DIHelpers\DI\ResolversExtension
 		arachne.codeception: Arachne\Codeception\DI\CodeceptionExtension
-		arachne.dihelpers: Arachne\DIHelpers\DI\DIHelpersExtension
 		arachne.verifier: Arachne\Verifier\DI\VerifierExtension
 		arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
 		kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
