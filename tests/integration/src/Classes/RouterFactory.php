@@ -11,16 +11,14 @@ use Nette\Application\Routers\RouteList;
  */
 class RouterFactory extends \Nette\Object
 {
+    /**
+     * @return IRouter
+     */
+    public function create()
+    {
+        $router = new RouteList();
+        $router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
 
-	/**
-	 * @return IRouter
-	 */
-	public function create()
-	{
-		$router = new RouteList();
-		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
-
-		return $router;
-	}
-
+        return $router;
+    }
 }

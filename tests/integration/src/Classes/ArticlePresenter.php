@@ -2,8 +2,8 @@
 
 namespace Tests\Integration\Classes;
 
-use Arachne\ComponentsProtection\Rules\Actions;
 use Arachne\ComponentsProtection\Application\ComponentsProtectionTrait;
+use Arachne\ComponentsProtection\Rules\Actions;
 use Arachne\Verifier\Rules\All;
 use Nette\Application\UI\Presenter;
 
@@ -12,57 +12,58 @@ use Nette\Application\UI\Presenter;
  */
 class ArticlePresenter extends Presenter
 {
+    use ComponentsProtectionTrait;
 
-	use ComponentsProtectionTrait;
+    public function actionDefault()
+    {
+    }
 
-	public function actionDefault()
-	{
-	}
+    /**
+     * @param int $id
+     */
+    public function actionDetail($id)
+    {
+    }
 
-	/**
-	 * @param int $id
-	 */
-	public function actionDetail($id)
-	{
-	}
+    /**
+     * @param int $id
+     */
+    public function actionEdit($id)
+    {
+    }
 
-	/**
-	 * @param int $id
-	 */
-	public function actionEdit($id)
-	{
-	}
+    /**
+     * @Actions({"*"})
+     *
+     * @return BlockControl
+     */
+    protected function createComponentHeader()
+    {
+        return new BlockControl();
+    }
 
-	/**
-	 * @Actions({"*"})
-	 * @return BlockControl
-	 */
-	protected function createComponentHeader()
-	{
-		return new BlockControl();
-	}
+    /**
+     * @Actions("default")
+     * @All({
+     * 	 @Actions("default"),
+     * })
+     *
+     * @return BlockControl
+     */
+    protected function createComponentFooter()
+    {
+        return new BlockControl();
+    }
 
-	/**
-	 * @Actions("default")
-	 * @All({
-	 * 	 @Actions("default"),
-	 * })
-	 * @return BlockControl
-	 */
-	protected function createComponentFooter()
-	{
-		return new BlockControl();
-	}
+    protected function createComponentUnprotected()
+    {
+    }
 
-	protected function createComponentUnprotected()
-	{
-	}
+    public function formatTemplateFiles()
+    {
+        $name = $this->getName();
+        $presenter = substr($name, strrpos(':'.$name, ':'));
 
-	public function formatTemplateFiles()
-	{
-		$name = $this->getName();
-		$presenter = substr($name, strrpos(':' . $name, ':'));
-		return [ __DIR__ . "/../../templates/$presenter.$this->view.latte" ];
-	}
-
+        return [__DIR__."/../../templates/$presenter.$this->view.latte"];
+    }
 }

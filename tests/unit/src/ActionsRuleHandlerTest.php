@@ -15,50 +15,48 @@ use Nette\Application\UI\Presenter;
  */
 class ActionsRuleHandlerTest extends Test
 {
+    /** @var ActionsRuleHandler */
+    private $handler;
 
-	/** @var ActionsRuleHandler */
-	private $handler;
+    protected function _before()
+    {
+        $this->handler = new ActionsRuleHandler();
+    }
 
-	protected function _before()
-	{
-		$this->handler = new ActionsRuleHandler();
-	}
+    public function testAllowedTrue()
+    {
+        $rule = new Actions();
+        $rule->actions = ['default'];
+        $request = new Request('Test', 'GET', [
+            Presenter::ACTION_KEY => 'default',
+        ]);
 
-	public function testAllowedTrue()
-	{
-		$rule = new Actions();
-		$rule->actions = [ 'default' ];
-		$request = new Request('Test', 'GET', [
-			Presenter::ACTION_KEY => 'default',
-		]);
+        $this->assertNull($this->handler->checkRule($rule, $request));
+    }
 
-		$this->assertNull($this->handler->checkRule($rule, $request));
-	}
+    /**
+     * @expectedException \Arachne\Verifier\Exception\VerificationException
+     * @expectedExceptionMessage Component is inaccessible for the given action.
+     */
+    public function testAllowedFalse()
+    {
+        $rule = new Actions();
+        $rule->actions = [];
+        $request = new Request('Test', 'GET', [
+            Presenter::ACTION_KEY => 'default',
+        ]);
 
-	/**
-	 * @expectedException Arachne\Verifier\Exception\VerificationException
-	 * @expectedExceptionMessage Component is inaccessible for the given action.
-	 */
-	public function testAllowedFalse()
-	{
-		$rule = new Actions();
-		$rule->actions = [];
-		$request = new Request('Test', 'GET', [
-			Presenter::ACTION_KEY => 'default',
-		]);
+        $this->handler->checkRule($rule, $request);
+    }
 
-		$this->handler->checkRule($rule, $request);
-	}
+    /**
+     * @expectedException \Arachne\ComponentsProtection\Exception\InvalidArgumentException
+     */
+    public function testUnknownAnnotation()
+    {
+        $rule = Mockery::mock(RuleInterface::class);
+        $request = new Request('Test', 'GET', []);
 
-	/**
-	 * @expectedException Arachne\ComponentsProtection\Exception\InvalidArgumentException
-	 */
-	public function testUnknownAnnotation()
-	{
-		$rule = Mockery::mock(RuleInterface::class);
-		$request = new Request('Test', 'GET', []);
-
-		$this->handler->checkRule($rule, $request);
-	}
-
+        $this->handler->checkRule($rule, $request);
+    }
 }

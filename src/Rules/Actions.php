@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Arachne
+ * This file is part of the Arachne.
  *
  * Copyright (c) Jáchym Toušek (enumag@gmail.com)
  *
@@ -20,8 +20,6 @@ use Arachne\Verifier\Rules\ValidationRule;
  */
 class Actions extends ValidationRule
 {
-
-	/** @var array */
-	public $actions = [];
-
+    /** @var array */
+    public $actions = [];
 }

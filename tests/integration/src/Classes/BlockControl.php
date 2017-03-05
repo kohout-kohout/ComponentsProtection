@@ -9,11 +9,9 @@ use Nette\Application\UI\Control;
  */
 class BlockControl extends Control
 {
-
-	public function render()
-	{
-		$this->template->setFile(__DIR__ . '/../../templates/block.latte');
-		$this->template->render();
-	}
-
+    public function render()
+    {
+        $this->template->setFile(__DIR__.'/../../templates/block.latte');
+        $this->template->render();
+    }
 }
