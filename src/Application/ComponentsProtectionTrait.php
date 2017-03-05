@@ -6,14 +6,17 @@ use Arachne\ComponentsProtection\Exception\MissingAnnotationException;
 use Arachne\ComponentsProtection\Rules\Actions;
 use Arachne\Verifier\Application\VerifierPresenterTrait;
 use Doctrine\Common\Annotations\Reader;
-use Nette\ComponentModel\IComponent;
+use ReflectionClass;
+use ReflectionMethod;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
 trait ComponentsProtectionTrait
 {
-    use VerifierPresenterTrait;
+    use VerifierPresenterTrait {
+        VerifierPresenterTrait::checkRequirements as verifierCheckRequirements;
+    }
 
     /**
      * @var Reader
@@ -29,23 +32,19 @@ trait ComponentsProtectionTrait
     }
 
     /**
-     * Component factory. Delegates the creation of components to a createComponent<Name> method.
-     *
-     * @param string $name
-     *
-     * @return IComponent|null
+     * @param ReflectionClass|ReflectionMethod $reflection
      */
-    protected function createComponent($name)
+    public function checkRequirements($reflection)
     {
-        $method = 'createComponent'.ucfirst($name);
-        if (method_exists($this, $method)) {
-            $reflection = $this->getReflection()->getMethod($method);
-            if (!$this->reader->getMethodAnnotation($reflection, Actions::class)) {
-                throw new MissingAnnotationException(sprintf('Missing annotation @%s for component "%s".', Actions::class, $name));
-            }
-            $this->checkRequirements($reflection);
+        if (
+            $reflection instanceof ReflectionMethod
+            && substr($reflection->getName(), 0, 15) === 'createComponent'
+            && !$this->reader->getMethodAnnotation($reflection, Actions::class)
+        ) {
+            $name = lcfirst(substr($reflection->getName(), 15));
+            throw new MissingAnnotationException(sprintf('Missing annotation @%s for component "%s".', Actions::class, $name));
         }
 
-        return parent::createComponent($name);
+        $this->verifierCheckRequirements($reflection);
     }
 }
