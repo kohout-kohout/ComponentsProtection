@@ -9,7 +9,7 @@ use Nette\Application\Routers\RouteList;
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class RouterFactory extends \Nette\Object
+class RouterFactory
 {
     /**
      * @return IRouter

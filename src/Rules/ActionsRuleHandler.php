@@ -8,12 +8,11 @@ use Arachne\Verifier\RuleHandlerInterface;
 use Arachne\Verifier\RuleInterface;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
-use Nette\Object;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
  */
-class ActionsRuleHandler extends Object implements RuleHandlerInterface
+class ActionsRuleHandler implements RuleHandlerInterface
 {
     /**
      * @param Actions $rule
