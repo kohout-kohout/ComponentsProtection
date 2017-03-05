@@ -12,6 +12,8 @@ use Arachne\Verifier\Rules\ValidationRule;
  */
 class Actions extends ValidationRule
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     public $actions = [];
 }

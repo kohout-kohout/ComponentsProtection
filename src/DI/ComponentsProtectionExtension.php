@@ -2,6 +2,8 @@
 
 namespace Arachne\ComponentsProtection\DI;
 
+use Arachne\ComponentsProtection\Rules\Actions;
+use Arachne\ComponentsProtection\Rules\ActionsRuleHandler;
 use Arachne\Verifier\DI\VerifierExtension;
 use Nette\DI\CompilerExtension;
 
@@ -15,9 +17,12 @@ class ComponentsProtectionExtension extends CompilerExtension
         $builder = $this->getContainerBuilder();
 
         $builder->addDefinition($this->prefix('handler'))
-            ->setClass('Arachne\ComponentsProtection\Rules\ActionsRuleHandler')
-            ->addTag(VerifierExtension::TAG_HANDLER, [
-                'Arachne\ComponentsProtection\Rules\Actions',
-            ]);
+            ->setClass(ActionsRuleHandler::class)
+            ->addTag(
+                VerifierExtension::TAG_HANDLER,
+                [
+                    Actions::class,
+                ]
+            );
     }
 }

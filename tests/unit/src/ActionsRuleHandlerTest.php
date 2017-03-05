@@ -15,7 +15,9 @@ use Nette\Application\UI\Presenter;
  */
 class ActionsRuleHandlerTest extends Test
 {
-    /** @var ActionsRuleHandler */
+    /**
+     * @var ActionsRuleHandler
+     */
     private $handler;
 
     protected function _before()

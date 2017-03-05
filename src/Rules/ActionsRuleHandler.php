@@ -24,12 +24,13 @@ class ActionsRuleHandler implements RuleHandlerInterface
     public function checkRule(RuleInterface $rule, Request $request, $component = null)
     {
         if (!$rule instanceof Actions) {
-            throw new InvalidArgumentException('Unknown rule \''.get_class($rule).'\' given.');
+            throw new InvalidArgumentException(sprintf('Unknown rule "%s" given.', get_class($rule)));
         }
 
         if ($rule->actions === ['*']) {
             return;
         }
+
         $parameters = $request->getParameters();
         if (!in_array($parameters[Presenter::ACTION_KEY], $rule->actions)) {
             throw new VerificationException($rule, 'Component is inaccessible for the given action.');
