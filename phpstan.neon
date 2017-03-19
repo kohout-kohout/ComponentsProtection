@@ -4,3 +4,4 @@ includes:
 
 parameters:
     ignoreErrors:
+        - '#^Parameter \#[0-9]++ \$[a-zA-Z]++ of method [a-zA-Z\\:]++\(\) expects [a-zA-Z\\]++, Eloquent\\Phony\\Mock\\Mock given#'
