@@ -8,36 +8,31 @@ This extension is here to provide easy annotation-based protection of presenter 
 The best way to install Arachne/ComponentsProtection is using [Composer](http://getcomposer.org/):
 
 ```sh
-$ composer require arachne/components-protection
+composer require arachne/components-protection
 ```
 
 Now you need to register Arachne/ComponentsProtection, Arachne/Verifier and Kdyby/Annotations extensions using your [neon](http://ne-on.org/) config file.
 
 ```yml
 extensions:
-	kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
-	arachne.verifier: Arachne\Verifier\DI\VerifierExtension
-	arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
+    kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
+    arachne.verifier: Arachne\Verifier\DI\VerifierExtension
+    arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
 ```
 
 See also the documentation of [Kdyby/Annotations](https://github.com/Kdyby/Annotations/blob/master/docs/en/index.md) and Arachne/Verifier.
 
-### PHP 5.4
-
 Finally **replace** the Arachne\Verifier\Application\VerifierPresenterTrait trait in your BasePresenter with Arachne\ComponentsProtection\Application\ComponentsProtectionTrait.
 
 ```php
-abstract class BasePresenter extends \Nette\Application\UI\Presenter
+use Arachne\ComponentsProtection\Application\ComponentsProtectionTrait;
+use Nette\Application\UI\Presenter;
+
+abstract class BasePresenter extends Presenter
 {
-
-	use \Arachne\ComponentsProtection\Application\ComponentsProtectionTrait;
-
+	use ComponentsProtectionTrait;
 }
 ```
-
-### PHP 5.3
-
-If you don't use PHP 5.4, just replace the `BasePresenter::createComponent()` method from Arachne\Verifier\Application\VerifierPresenterTrait with the one from Arachne\ComponentsProtection\Application\ComponentsProtectionTrait.
 
 
 ## Usage
@@ -51,7 +46,6 @@ use Arachne\ComponentsProtection\Rules\Actions;
 
 class ArticlePresenter extends BasePresenter
 {
-
 	public function actionDefault()
 	{
 		// Using $this['editForm'] will cause an exception.
@@ -69,7 +63,6 @@ class ArticlePresenter extends BasePresenter
 	{
 		// This component will be available only for edit action.
 	}
-
 }
 ```
 
