@@ -9,11 +9,8 @@ Arachne/ComponentsProtection
 [![Downloads this Month](https://img.shields.io/packagist/dm/arachne/components-protection.svg?style=flat-square)](https://packagist.org/packages/arachne/components-protection)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/Arachne/ComponentsProtection/blob/master/license.md)
 
-Installation
+
+Documentation
 ----
 
-The best way to install Arachne/ComponentsProtection is using [Composer](http://getcomposer.org/):
-
-```sh
-$ composer require arachne/components-protection
-```
+- [Installation & Usage](docs/index.md)
