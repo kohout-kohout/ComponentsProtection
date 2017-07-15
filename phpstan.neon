@@ -3,5 +3,8 @@ includes:
     - vendor-tools/phpstan/phpstan-nette/rules.neon
 
 parameters:
+    excludes_analyse:
+        - %rootDir%/../../../tests/_*
+
     ignoreErrors:
         - '#^Parameter \#[0-9]++ \$[a-zA-Z]++ of method [a-zA-Z\\:]++\(\) expects [a-zA-Z\\]++, Eloquent\\Phony\\Mock\\Mock given#'

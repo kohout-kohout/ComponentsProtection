@@ -15,9 +15,9 @@ use Nette\Application\UI\Presenter;
 class ActionsRuleHandler implements RuleHandlerInterface
 {
     /**
-     * @param Actions $rule
-     * @param Request $request
-     * @param string  $component
+     * @param Actions     $rule
+     * @param Request     $request
+     * @param string|null $component
      *
      * @throws VerificationException
      */
