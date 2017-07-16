@@ -22,7 +22,7 @@ extensions:
 
 See also the documentation of [Kdyby/Annotations](https://github.com/Kdyby/Annotations/blob/master/docs/en/index.md) and Arachne/Verifier.
 
-Finally **replace** the Arachne\Verifier\Application\VerifierPresenterTrait trait in your BasePresenter with Arachne\ComponentsProtection\Application\ComponentsProtectionTrait.
+Finally **replace** the `Arachne\Verifier\Application\VerifierPresenterTrait` trait in your BasePresenter with `Arachne\ComponentsProtection\Application\ComponentsProtectionTrait`.
 
 ```php
 use Arachne\ComponentsProtection\Application\ComponentsProtectionTrait;
