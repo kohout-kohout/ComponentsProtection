@@ -29,16 +29,16 @@
     "autoload": {
         "psr-4": {
             "Arachne\\ComponentsProtection\\": "src"
-        },
-        "files": [
-            "vendor/codeception/codeception/shim.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\Unit\\": "tests/unit/src",
             "Tests\\Functional\\": "tests/functional/src"
-        }
+        },
+        "files": [
+            "vendor/codeception/codeception/shim.php"
+        ]
     },
     "scripts": {
         "tools": "sh composer-tools.sh",
