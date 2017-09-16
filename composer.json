@@ -1,6 +1,6 @@
 {
     "name": "arachne/components-protection",
-    "description": "Security for Nette components.",
+    "description": "Security for nette/application components.",
     "type": "library",
     "keywords": [ "nette", "arachne", "security" ],
     "license": "MIT",
