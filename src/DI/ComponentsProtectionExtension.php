@@ -17,7 +17,7 @@ class ComponentsProtectionExtension extends CompilerExtension
         $builder = $this->getContainerBuilder();
 
         $builder->addDefinition($this->prefix('handler'))
-            ->setClass(ActionsRuleHandler::class)
+            ->setType(ActionsRuleHandler::class)
             ->addTag(
                 VerifierExtension::TAG_HANDLER,
                 [

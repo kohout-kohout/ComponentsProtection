@@ -17,7 +17,7 @@
         "doctrine/annotations": "^1.3.0",
         "kdyby/annotations": "^2.3.0",
         "nette/application": "^2.4.0",
-        "nette/di": "^2.4.0"
+        "nette/di": "^2.4.10"
     },
     "require-dev": {
         "arachne/codeception": "^0.7.3",
@@ -25,6 +25,7 @@
         "eloquent/phony": "^2.0.0",
         "eloquent/phony-phpunit": "^3.0.0",
         "friendsofphp/php-cs-fixer": "^2.7.0@dev",
+        "kdyby/doctrine-cache": "^2.6.1@dev",
         "latte/latte": "^2.4.0",
         "phpstan/phpstan": "^0.8.5",
         "phpstan/phpstan-nette": "^0.8.3"
