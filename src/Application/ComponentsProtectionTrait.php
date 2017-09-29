@@ -34,7 +34,7 @@ trait ComponentsProtectionTrait
     /**
      * @param ReflectionClass|ReflectionMethod $reflection
      */
-    public function checkRequirements($reflection)
+    public function checkRequirements($reflection): void
     {
         if (
             $reflection instanceof ReflectionMethod

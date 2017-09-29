@@ -14,21 +14,21 @@ class ArticlePresenter extends Presenter
 {
     use ComponentsProtectionTrait;
 
-    public function actionDefault()
+    public function actionDefault(): void
     {
     }
 
     /**
      * @param int $id
      */
-    public function actionDetail($id)
+    public function actionDetail($id): void
     {
     }
 
     /**
      * @param int $id
      */
-    public function actionEdit($id)
+    public function actionEdit($id): void
     {
     }
 
@@ -37,7 +37,7 @@ class ArticlePresenter extends Presenter
      *
      * @return BlockControl
      */
-    protected function createComponentHeader()
+    protected function createComponentHeader(): BlockControl
     {
         return new BlockControl();
     }
@@ -50,16 +50,16 @@ class ArticlePresenter extends Presenter
      *
      * @return BlockControl
      */
-    protected function createComponentFooter()
+    protected function createComponentFooter(): BlockControl
     {
         return new BlockControl();
     }
 
-    protected function createComponentUnprotected()
+    protected function createComponentUnprotected(): void
     {
     }
 
-    public function formatTemplateFiles()
+    public function formatTemplateFiles(): array
     {
         $name = $this->getName();
         $presenter = substr($name, strrpos(':'.$name, ':'));

@@ -22,12 +22,12 @@ class ActionsRuleHandlerTest extends Unit
      */
     private $handler;
 
-    protected function _before()
+    protected function _before(): void
     {
         $this->handler = new ActionsRuleHandler();
     }
 
-    public function testAllowedTrue()
+    public function testAllowedTrue(): void
     {
         $rule = new Actions();
         $rule->actions = ['default'];
@@ -38,7 +38,7 @@ class ActionsRuleHandlerTest extends Unit
         $this->handler->checkRule($rule, $request);
     }
 
-    public function testAllowedFalse()
+    public function testAllowedFalse(): void
     {
         $rule = new Actions();
         $rule->actions = [];
@@ -54,7 +54,7 @@ class ActionsRuleHandlerTest extends Unit
         }
     }
 
-    public function testUnknownAnnotation()
+    public function testUnknownAnnotation(): void
     {
         $rule = Phony::mock(RuleInterface::class)->get();
         $request = new Request('Test', 'GET', []);

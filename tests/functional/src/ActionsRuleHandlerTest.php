@@ -17,7 +17,7 @@ class ActionsRuleHandlerTest extends Unit
      */
     protected $tester;
 
-    public function testActionDefault()
+    public function testActionDefault(): void
     {
         $this->tester->amOnPage('/article/');
         $this->tester->seeResponseCodeIs(200);
@@ -25,7 +25,7 @@ class ActionsRuleHandlerTest extends Unit
         $this->tester->see('footer');
     }
 
-    public function testActionDetail()
+    public function testActionDetail(): void
     {
         try {
             $this->tester->amOnPage('/article/detail/1');
@@ -35,7 +35,7 @@ class ActionsRuleHandlerTest extends Unit
         }
     }
 
-    public function testActionEdit()
+    public function testActionEdit(): void
     {
         $this->tester->amOnPage('/article/edit/1');
         $this->tester->seeResponseCodeIs(200);
@@ -43,7 +43,7 @@ class ActionsRuleHandlerTest extends Unit
         $this->tester->dontSee('footer');
     }
 
-    public function testComponentNotAllowed()
+    public function testComponentNotAllowed(): void
     {
         try {
             $this->tester->amOnPage('/article/?do=unprotected-signal');

@@ -15,13 +15,11 @@ use Nette\Application\UI\Presenter;
 class ActionsRuleHandler implements RuleHandlerInterface
 {
     /**
-     * @param Actions     $rule
-     * @param Request     $request
-     * @param string|null $component
+     * @param Actions $rule
      *
      * @throws VerificationException
      */
-    public function checkRule(RuleInterface $rule, Request $request, $component = null)
+    public function checkRule(RuleInterface $rule, Request $request, ?string $component = null): void
     {
         if (!$rule instanceof Actions) {
             throw new InvalidArgumentException(sprintf('Unknown rule "%s" given.', get_class($rule)));
