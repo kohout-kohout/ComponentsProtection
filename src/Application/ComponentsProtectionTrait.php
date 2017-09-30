@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Arachne\ComponentsProtection\Application;
 
 use Arachne\ComponentsProtection\Exception\MissingAnnotationException;

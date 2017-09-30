@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Arachne\ComponentsProtection\DI;
 
 use Arachne\ComponentsProtection\Rules\Actions;
