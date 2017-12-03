@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Tests\Functional\Classes;
 
 use Nette\Application\UI\Control;
+use Nette\Bridges\ApplicationLatte\Template;
 
 /**
  * @author Jáchym Toušek <enumag@gmail.com>
+ *
+ * @property Template $template
  */
 class BlockControl extends Control
 {

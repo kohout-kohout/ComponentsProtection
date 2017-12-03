@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace Tests\Unit;
 
-use Arachne\ComponentsProtection\Exception\InvalidArgumentException;
 use Arachne\ComponentsProtection\Rules\Actions;
 use Arachne\ComponentsProtection\Rules\ActionsRuleHandler;
 use Arachne\Verifier\Exception\VerificationException;
-use Arachne\Verifier\RuleInterface;
 use Codeception\Test\Unit;
-use Eloquent\Phony\Phpunit\Phony;
 use Nette\Application\Request;
 use Nette\Application\UI\Presenter;
 
@@ -53,18 +50,6 @@ class ActionsRuleHandlerTest extends Unit
             self::fail();
         } catch (VerificationException $e) {
             self::assertSame('Component is inaccessible for the given action.', $e->getMessage());
-        }
-    }
-
-    public function testUnknownAnnotation(): void
-    {
-        $rule = Phony::mock(RuleInterface::class)->get();
-        $request = new Request('Test', 'GET', []);
-
-        try {
-            $this->handler->checkRule($rule, $request);
-            self::fail();
-        } catch (InvalidArgumentException $e) {
         }
     }
 }
