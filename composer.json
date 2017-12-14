@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.1.0",
-        "arachne/verifier": "^1.0.0@dev",
+        "arachne/verifier": "^0.10.0@dev",
         "doctrine/annotations": "^1.3.0",
         "kdyby/annotations": "^2.3.0",
         "nette/application": "^2.4.0",
