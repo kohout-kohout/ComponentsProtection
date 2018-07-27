@@ -28,7 +28,7 @@ trait ComponentsProtectionTrait
     /**
      * @param Reader $reader
      */
-    final public function injectReader(Reader $reader)
+    final public function injectReader(Reader $reader): void
     {
         $this->reader = $reader;
     }
@@ -41,7 +41,7 @@ trait ComponentsProtectionTrait
         if (
             $reflection instanceof ReflectionMethod
             && substr($reflection->getName(), 0, 15) === 'createComponent'
-            && !$this->reader->getMethodAnnotation($reflection, Actions::class)
+            && $this->reader->getMethodAnnotation($reflection, Actions::class) === null
         ) {
             $name = lcfirst(substr($reflection->getName(), 15));
             throw new MissingAnnotationException(sprintf('Missing annotation @%s for component "%s".', Actions::class, $name));

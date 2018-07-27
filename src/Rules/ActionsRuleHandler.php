@@ -17,8 +17,6 @@ use Nette\Application\UI\Presenter;
 class ActionsRuleHandler implements RuleHandlerInterface
 {
     /**
-     * @param Actions $rule
-     *
      * @throws VerificationException
      */
     public function checkRule(RuleInterface $rule, Request $request, ?string $component = null): void
@@ -32,7 +30,7 @@ class ActionsRuleHandler implements RuleHandlerInterface
         }
 
         $parameters = $request->getParameters();
-        if (!in_array($parameters[Presenter::ACTION_KEY], $rule->actions)) {
+        if (!in_array($parameters[Presenter::ACTION_KEY], $rule->actions, true)) {
             throw new VerificationException($rule, 'Component is inaccessible for the given action.');
         }
     }
