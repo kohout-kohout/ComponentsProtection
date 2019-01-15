@@ -3,8 +3,8 @@ extensions:
     nette.cache: Nette\Bridges\CacheDI\CacheExtension( %tempDir% )
     nette.http: Nette\Bridges\HttpDI\HttpExtension
     nette.latte: Nette\Bridges\ApplicationDI\LatteExtension( %tempDir% )
+    contributte.codeception: Contributte\Codeception\DI\HttpExtension
     arachne.serviceCollections: Arachne\ServiceCollections\DI\ServiceCollectionsExtension
-    arachne.codeception: Arachne\Codeception\DI\HttpExtension
     arachne.verifier: Arachne\Verifier\DI\VerifierExtension
     arachne.componentsProtection: Arachne\ComponentsProtection\DI\ComponentsProtectionExtension
     kdyby.annotations: Kdyby\Annotations\DI\AnnotationsExtension
