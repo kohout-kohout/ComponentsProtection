@@ -10,4 +10,4 @@ parameters:
         - %rootDir%/../../../tests/_*
 
     ignoreErrors:
-        - "~Parameter #1 \\$reflection \\(ReflectionClass\\|ReflectionMethod\\) of method Tests\\\\Functional\\\\Classes\\\\ArticlePresenter::checkRequirements\\(\\) should be contravariant with parameter \\$element \\(mixed\\) of method Nette\\\\Application\\\\UI\\\\Presenter::checkRequirements\\(\\)~"
+        - '~Parameter #1 \$reflection \(ReflectionClass\|ReflectionMethod\) of method Tests\\Functional\\Classes\\ArticlePresenter::checkRequirements\(\) should be contravariant with parameter \$element \(mixed\) of method Nette\\Application\\UI\\Presenter::checkRequirements\(\)~'
